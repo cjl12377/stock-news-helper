@@ -3,9 +3,9 @@ Sends top news on a company when their ticker's previous day closing price excee
 
 
 ## API endpoints used:
-Get stock data - https://www.alphavantage.co/query
-Get news stories - https://newsapi.org/v2/everything
-Send SMS - Twilio (watch not to burst your free credits)
+1. Get stock data - https://www.alphavantage.co/query
+2. Get news stories - https://newsapi.org/v2/everything
+3. Send SMS - Twilio (careful not to burst your free credits)
 
 
 To change number of articles retrieved:
