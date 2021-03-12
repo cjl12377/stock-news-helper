@@ -1,6 +1,9 @@
 # stock-news-helper
 When a chosen ticker's previous day closing price exceeds 5% (percentage constraint) of the opening price, the title of news are searched for the company name and 3 (pageSzize) articles are returned and parsed, then sent to a phone number via SMS
 
+## Where I hosted:
+[pythonanywhere](https://www.pythonanywhere.com/) - it's limited in its features for the free tier but its simple and works
+
 
 ## API endpoints used:
 1. Get stock data - https://www.alphavantage.co/query
