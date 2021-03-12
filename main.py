@@ -10,9 +10,6 @@ TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
 STOCK_API_KEY = os.environ.get("STOCK_API_KEY")
 NEWS_API = os.environ.get("NEWS_API")
 
-## STEP 1: Use https://www.alphavantage.co
-# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-
 def get_stock_alert():
     STOCK_ENDPOINT = "https://www.alphavantage.co/query"
     STOCK_PARAMS = {
@@ -36,8 +33,7 @@ def get_stock_alert():
 
     if (abs(day_changes)/opening_price)*100 > 5:
         get_news(day_changes, up_down)
-## STEP 2: Use https://newsapi.org
-# Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
+        
 
 def get_news(day_changes, up_down):
     NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
@@ -52,9 +48,8 @@ def get_news(day_changes, up_down):
     formatted_articles = [f"\n{STOCK}: {up_down}{round(abs(day_changes),2)}%\nHeadline: {article['title']}\n\nText: {article['description']}\nURL: {article['url']}" for article in articles]
 
     send_sms(formatted_articles)
-## STEP 3: Use https://www.twilio.com
-# Send a seperate message with the percentage change and each article's title and description to your phone number.
-
+                          
+                          
 def send_sms(formatted_articles):
     """"sends 1 message for every article. Num of articles pulled can be changed at pageSize in NEWS_PARAMS"""
     messages = formatted_articles
@@ -71,16 +66,6 @@ def send_sms(formatted_articles):
         )
         print(message.sid)
 
+                          
 get_stock_alert()
-
-#Optional: Format the SMS message like this:
-"""
-TSLA: 🔺2%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?.
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-or
-"TSLA: 🔻5%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?.
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-"""
 
