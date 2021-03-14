@@ -21,4 +21,5 @@ under get_stock_alert() -->  if (abs(day_changes)/opening_price)*100 > **5**:
         get_news(day_changes, up_down)
 
 ## Example:
-Example-telegram-news-alert<img width="429" alt="image" src="https://user-images.githubusercontent.com/69098684/111066753-a122c400-84fb-11eb-856f-23e154fc2b10.png">
+<img width="429" alt="image" src="https://user-images.githubusercontent.com/69098684/111066753-a122c400-84fb-11eb-856f-23e154fc2b10.png">
+
